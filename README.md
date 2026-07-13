@@ -1,6 +1,6 @@
 # Joel's Portfolio
 
-This repository contains the code for my personal portfolio website (template from HTML5 UP!).
+This repository contains the code for my personal portfolio website (template from [HTML5 UP!](https://html5up.net/phantom)).
 
 I am a Mechatronics Engineering student at Toronto Metropolitan University with interests in robotics, artificial intelligence, computer vision, embedded systems, and autonomous systems.
 
