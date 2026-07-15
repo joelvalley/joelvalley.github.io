@@ -2320,7 +2320,8 @@ section,
 
 .portfolio .portfolio-card .portfolio-img img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 

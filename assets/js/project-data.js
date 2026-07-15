@@ -1,0 +1,165 @@
+(() => {
+  "use strict";
+
+  const projects = [
+    {
+      id: "soft-robot-prototype",
+      title: "Soft Robot Prototype",
+      organization: "ELIXIR Lab",
+      categories: ["Electrical", "Mechanical", "Machine Learning"],
+      image: "assets/img/portfolio/projects/soft-robot-prototype.jpg",
+      alt: "Untethered soft robot prototype with electromagnetic actuators",
+      lead: "An untethered soft-robotics platform combining electromagnetic actuation, lightweight mechanical design, and data-driven gait optimization.",
+      overview: "Working with a multidisciplinary team of more than ten undergraduate researchers, I helped iteratively develop an untethered soft robot and concentrated on the electromagnet system that drives its motion.",
+      challenge: "The actuator design required careful trade-offs among magnetic-field density, wire gauge, overall mass, and manufacturability. The robot also needed an efficient method for selecting pulse sequences that maximize forward speed.",
+      results: "I designed electromagnet moulds and the outer shell in Onshape, fabricated components on a Bambu Lab P1S, and built a PyTorch regression network using synthetic training data. Replacing the wire casing with a mould reduced electromagnet mass by 28%. The model achieved scaled error below 0.0004 and identified pulse inputs that predicted maximum speed within 1%."
+    },
+    {
+      id: "mechanical-arm-gripper",
+      title: "Mechanical Arm with Gripper",
+      organization: "Toronto Metropolitan University",
+      categories: ["Mechanical"],
+      image: "assets/img/portfolio/projects/mechanical-arm-gripper.png",
+      alt: "CAD model of a mechanical four-bar arm and gripper",
+      lead: "A manually operated four-bar linkage designed to collect and sort styrofoam, plastic, and metal spheres.",
+      overview: "The mechanism combines an extended-reach arm with a string-actuated gripper that closes around objects for straightforward, reliable operation.",
+      challenge: "Every component had to be laser-cut from a single 8 by 10 inch sheet of 1/8 inch acrylic while preserving sufficient reach, mobility, and structural integrity.",
+      results: "I modelled the assembly in SolidWorks and iteratively refined the geometry to reduce material consumption without compromising the arm's usable workspace. The final design integrated the linkage, gripper, and supporting structure within the project manufacturing constraint."
+    },
+    {
+      id: "line-maze-robot",
+      title: "Line Following & Maze Traversal Robot",
+      organization: "Toronto Metropolitan University",
+      categories: ["Software", "Electrical"],
+      image: "assets/img/portfolio/projects/line-maze-robot.jpg",
+      alt: "Autonomous rover navigating a maze",
+      lead: "An autonomous rover programmed to complete sequential line-following and maze-traversal challenges using closed-loop sensor feedback.",
+      overview: "The robot combined C++ and AVR Assembly software with IMU and ultrasonic sensing to transition from line tracking into autonomous maze navigation.",
+      challenge: "Reliable navigation required accurate 90-degree turns, early evaluation of competing paths, and consistent alignment before entering the selected corridor.",
+      results: "I implemented closed-loop IMU turning, a two-stop path-selection algorithm, and an ultrasonic stop-look routine triggered within 15 cm of a wall. The rover completed both challenges on competition day and was one of only three teams in the section to use closed-loop feedback for the maze."
+    },
+    {
+      id: "pid-controlled-ruler",
+      title: "PID-Controlled Ruler",
+      organization: "Toronto Metropolitan University",
+      categories: ["Software", "Electrical", "Mechanical"],
+      image: "assets/img/portfolio/projects/pid-controlled-ruler.jpg",
+      alt: "PID-controlled ruler prototype with dial and electronics",
+      lead: "A mechatronic display that converts nonlinear distance-sensor measurements into the angular position of a motor-driven dial.",
+      overview: "The device integrated sensing, signal conditioning, closed-loop motor control, and custom mechanical components to provide a readable physical indication of target distance.",
+      challenge: "Raw sensor measurements were nonlinear and noisy, requiring calibration and filtering before they could serve as a stable control input for the dial mechanism.",
+      results: "The team applied a low-pass filter, fitted a polynomial calibration curve, manually tuned PID gains, and drove the DC motor with PWM. I contributed primarily to the electrical and mechanical design, including custom SolidWorks components, and assisted with the LabVIEW implementation. The completed prototype accurately displayed target distance on the dial."
+    },
+    {
+      id: "imitation-learning-xarm",
+      title: "Imitation Learning for UFactory xArm 850",
+      organization: "ELIXIR Lab",
+      categories: ["Software", "Machine Learning"],
+      image: "assets/img/portfolio/projects/imitation-learning-xarm.jpg",
+      alt: "UFactory xArm 850 robotic manipulator",
+      lead: "A ROS 2 and PyTorch imitation-learning system that predicts robotic-arm motion toward task-defined target locations.",
+      overview: "The project established an end-to-end workflow for collecting demonstrations, training a neural policy, and controlling a UFactory xArm 850 through live joint-state feedback.",
+      challenge: "The system needed synchronized trajectory data and a reliable feedback loop capable of translating model predictions into safe, repeatable arm motion.",
+      results: "I created ROS 2 nodes to load trajectories from CSV, command inverse-kinematics motion, and record joint positions at a fixed rate. A deep neural network trained on this dataset was integrated with ROS 2 feedback and the xArm SDK. The model reached specified targets and demonstrated interpolation and extrapolation to task IDs outside the training set."
+    },
+    {
+      id: "ai-payload-camera",
+      title: "AI Payload Camera System",
+      organization: "MetRocketry",
+      categories: ["Software", "Electrical", "Machine Learning"],
+      image: "assets/img/portfolio/projects/ai-payload-camera.png",
+      alt: "Aerial scene processed by object detection and segmentation models",
+      lead: "An edge-AI vision payload for terrain mapping, building detection, and rescue-surveillance applications.",
+      overview: "The system combines custom aerial datasets, YOLO-based detection and segmentation models, and real-time OpenCV inference on embedded NVIDIA hardware.",
+      challenge: "Aerial imagery presents large changes in scale, viewing angle, and terrain appearance, while the final models must run efficiently on a Jetson Orin Nano paired with an Arducam camera.",
+      results: "I annotated and augmented custom datasets with Roboflow and Label Studio, trained multiple YOLO models using Google Colab GPU resources, and developed Python/OpenCV scripts for live instance segmentation. The resulting models achieved approximately 70% mean average precision and successfully identified objects and terrain regions in representative scenes."
+    },
+    {
+      id: "solar-panel-controller",
+      title: "Solar Panel Controller",
+      organization: "Toronto Metropolitan University",
+      categories: ["Software"],
+      image: "assets/img/portfolio/projects/solar-panel-controller.png",
+      alt: "Solar panel tracking simulation in Gazebo",
+      lead: "A ROS 2 proportional-derivative controller that keeps a simulated solar panel aligned with the sun under disturbances and sensor noise.",
+      overview: "The controller was evaluated in three Gazebo scenarios: baseline trajectory following, wind disturbance, and combined sensor drift with quantization error.",
+      challenge: "The panel had to track a moving target accurately despite external torque disturbances and degraded feedback measurements.",
+      results: "I built the simulation in Gazebo Ignition on Ubuntu 22.04 and used ROS 2 Humble publishers and subscribers for responsive data exchange. The controller followed the sun trajectory in all three scenarios; even the most demanding noisy-sensor case produced a mean absolute error of only 0.1502 radians."
+    },
+    {
+      id: "six-dof-robotic-arm",
+      title: "6-DOF Robotic Arm",
+      organization: "Toronto Metropolitan University",
+      categories: ["Software"],
+      image: "assets/img/portfolio/projects/six-dof-robotic-arm.png",
+      alt: "Six degree-of-freedom robotic arm simulation",
+      lead: "A MATLAB implementation of manipulator kinematics, path planning, and Euler-Lagrange dynamics for a six-joint robotic arm.",
+      overview: "The project translated core robotics theory into a complete mathematical and simulation workflow covering forward kinematics, Jacobians, inverse kinematics, trajectory generation, and dynamics.",
+      challenge: "The dynamic model required deriving coupled inertial, Coriolis, and gravitational effects from link geometry and inertia tensors, then solving the resulting nonlinear motion equations.",
+      results: "I computed the inertia matrix from partial Jacobians, formed the Christoffel-based Coriolis matrix and gravity vector, and used ODE solvers to simulate joint position and velocity. The completed model represented the manipulator through multiple consistent mathematical formulations and validated the full analysis pipeline."
+    },
+    {
+      id: "camera-drone-mount",
+      title: "Camera Drone Mount",
+      organization: "MetRocketry",
+      categories: ["Mechanical"],
+      image: "assets/img/portfolio/projects/camera-drone-mount.jpg",
+      alt: "Camera mount installed beneath a payload drone",
+      lead: "A custom 3D-printed mount engineered to secure MetRocketry's payload camera during a drone test campaign.",
+      overview: "The mount provided a precise mechanical interface between the selected camera and the existing payload-drone plate.",
+      challenge: "The design had to respect camera documentation, existing CAD geometry, available mounting points, and the physical constraints of the drone assembly.",
+      results: "I modelled the mount in SolidWorks using the camera and drone-plate dimensions, then prepared and fabricated it through Bambu Studio. The installed mount successfully supported the camera and captured payload footage during the drone test launch."
+    },
+    {
+      id: "mechanical-arm-mk2",
+      title: "Mechanical Arm with Gripper Mk2",
+      organization: "Toronto Metropolitan University",
+      categories: ["Electrical", "Mechanical"],
+      image: "assets/img/portfolio/projects/mechanical-arm-mk2.png",
+      alt: "Second-generation motor-compatible mechanical arm and gripper",
+      lead: "A redesigned four-bar arm and gripper developed for independent rotary actuation and object manipulation.",
+      overview: "The second-generation concept pairs a crank-rocker arm with a rocker-rocker gripper, allowing the arm and end effector to be driven independently by DC or servo motors.",
+      challenge: "The linkage geometry had to provide the desired workspace and gripping motion while remaining compatible with rotary actuators and avoiding invalid mechanism configurations.",
+      results: "I designed, assembled, and rendered the mechanism in SolidWorks, then applied graphical synthesis, Grashof's criterion, and reach analysis to verify the motion path and maximum/minimum operating conditions. The final concept established a validated foundation for motorized actuation."
+    }
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const currentIndex = projects.findIndex((project) => project.id === params.get("project"));
+  const project = projects[currentIndex];
+
+  if (!project) {
+    window.location.replace("portfolio.html");
+    return;
+  }
+
+  const setText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  };
+
+  document.title = `Joel Valley - ${project.title}`;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", project.lead);
+  setText("project-title", project.title);
+  setText("project-subtitle", project.organization);
+  setText("project-badge", project.categories.join(" · "));
+  setText("project-heading", project.title);
+  setText("project-lead", project.lead);
+  setText("project-overview", project.overview);
+  setText("project-challenge", project.challenge);
+  setText("project-results", project.results);
+
+  const image = document.getElementById("project-image");
+  image.src = project.image;
+  image.alt = project.alt;
+
+  const tags = document.getElementById("project-tags");
+  project.categories.forEach((category) => {
+    const tag = document.createElement("span");
+    tag.textContent = category;
+    tags.appendChild(tag);
+  });
+
+  const next = projects[(currentIndex + 1) % projects.length];
+  document.getElementById("next-project").href = `project.html?project=${encodeURIComponent(next.id)}`;
+})();
