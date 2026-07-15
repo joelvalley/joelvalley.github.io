@@ -1520,6 +1520,64 @@ section,
   color: var(--accent-color);
 }
 
+.resume .resume-download {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 3rem;
+}
+
+.resume .resume-download-mobile {
+  display: none;
+}
+
+.resume .resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.resume .resume-download-btn:hover,
+.resume .resume-download-btn:focus-visible {
+  background-color: color-mix(in srgb, var(--accent-color), black 15%);
+  border-color: color-mix(in srgb, var(--accent-color), black 15%);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-color), transparent 75%);
+}
+
+.resume .resume-download-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+  outline-offset: 3px;
+}
+
+@media (max-width: 991.98px) {
+  .resume .resume-download-desktop {
+    display: none;
+  }
+
+  .resume .resume-download-mobile {
+    display: flex;
+    margin: 0 0 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .resume .resume-download-btn {
+    width: 100%;
+  }
+}
+
 @media (max-width: 991.98px) {
   .resume .resume-item {
     margin-bottom: 2rem;
