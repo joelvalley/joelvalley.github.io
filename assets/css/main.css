@@ -2695,6 +2695,169 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Project Page Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-card .portfolio-img .portfolio-img-link {
+  display: block;
+  position: relative;
+}
+
+.portfolio .portfolio-card .portfolio-img .portfolio-overlay .portfolio-view-icon {
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.portfolio .portfolio-card:hover .portfolio-img .portfolio-overlay .portfolio-view-icon {
+  transform: translateY(-5px);
+}
+
+.project .project-content {
+  padding-right: 1rem;
+}
+
+.project .project-content .project-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.project .project-content .project-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.project .project-content .project-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  margin-bottom: 1.5rem;
+}
+
+.project .project-content .project-body h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project .project-content .project-body h4:first-child {
+  margin-top: 0;
+}
+
+.project .project-content .project-body p {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.project .project-content .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.project .project-content .project-tags span {
+  font-size: 12px;
+  padding: 4px 10px;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 20px;
+}
+
+.project .project-content .project-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.project .project-content .project-nav .btn-back,
+.project .project-content .project-nav .btn-next {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project .project-content .project-nav .btn-back {
+  background-color: color-mix(in srgb, var(--heading-color), transparent 90%);
+  color: var(--heading-color);
+}
+
+.project .project-content .project-nav .btn-back:hover {
+  background-color: color-mix(in srgb, var(--heading-color), transparent 80%);
+}
+
+.project .project-content .project-nav .btn-next {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.project .project-content .project-nav .btn-next:hover {
+  background-color: color-mix(in srgb, var(--accent-color), black 15%);
+  transform: translateY(-2px);
+}
+
+.project .project-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.project .project-figure .project-photo {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 92%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project .project-figure:hover .project-photo {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 991.98px) {
+  .project .project-content {
+    padding-right: 0;
+  }
+
+  .project .project-content .project-nav {
+    flex-direction: column;
+  }
+
+  .project .project-content .project-nav .btn-back,
+  .project .project-content .project-nav .btn-next {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .project .project-content .project-heading {
+    font-size: 1.6rem;
+  }
+}
+
+/*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
 .contact .info-box {
