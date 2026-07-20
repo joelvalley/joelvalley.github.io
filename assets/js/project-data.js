@@ -8,11 +8,22 @@
       organization: "ELIXIR Lab",
       categories: ["Electrical", "Mechanical", "Machine Learning"],
       image: "assets/img/portfolio/projects/soft-robot-prototype.jpg",
+      video: "assets/video/portfolio/soft-robot-prototype.mp4",
+      gallery: [
+        {
+          src: "assets/img/portfolio/projects/soft-robot/electromagnet-assembly.jpg",
+          alt: "Orange soft robot prototype showing its curved body and electromagnet assembly"
+        },
+        {
+          src: "assets/img/portfolio/projects/soft-robot/black-prototype.jpg",
+          alt: "Black soft robot prototype undergoing electronics testing on a workbench"
+        }
+      ],
       alt: "Untethered soft robot prototype with electromagnetic actuators",
-      lead: "An untethered soft-robotics platform combining electromagnetic actuation, lightweight mechanical design, and data-driven gait optimization.",
-      overview: "Working with a multidisciplinary team of more than ten undergraduate researchers, I helped iteratively develop an untethered soft robot and concentrated on the electromagnet system that drives its motion.",
+      lead: "An untethered soft robot combining electromagnetic actuation, lightweight mechanical design, and data-driven gait optimization.",
+      overview: "Working with a multidisciplinary team of more than ten undergraduate researchers, I helped to iteratively develop an untethered soft robot and concentrated on the electromagnets that drive it's motion.",
       challenge: "The actuator design required careful trade-offs among magnetic-field density, wire gauge, overall mass, and manufacturability. The robot also needed an efficient method for selecting pulse sequences that maximize forward speed.",
-      results: "I designed electromagnet moulds and the outer shell in Onshape, fabricated components on a Bambu Lab P1S, and built a PyTorch regression network using synthetic training data. Replacing the wire casing with a mould reduced electromagnet mass by 28%. The model achieved scaled error below 0.0004 and identified pulse inputs that predicted maximum speed within 1%."
+      results: "I designed electromagnet moulds in Onshape, fabricated components on a Bambu Lab P1S, and built a PyTorch regression network using synthetic training data. Replacing the wire casing with a mould reduced electromagnet mass by 28%. The model achieved scaled error below 0.0004 and identified pulse inputs that predicted maximum speed within 1% (synthetic dataset)."
     },
     {
       id: "mechanical-arm-gripper",
@@ -21,10 +32,10 @@
       categories: ["Mechanical"],
       image: "assets/img/portfolio/projects/mechanical-arm-gripper.png",
       alt: "CAD model of a mechanical four-bar arm and gripper",
-      lead: "A manually operated four-bar linkage designed to collect and sort styrofoam, plastic, and metal spheres.",
+      lead: "A manually operated four-bar linkage arm designed to collect and sort styrofoam, plastic, and metal spheres.",
       overview: "The mechanism combines an extended-reach arm with a string-actuated gripper that closes around objects for straightforward, reliable operation.",
-      challenge: "Every component had to be laser-cut from a single 8 by 10 inch sheet of 1/8 inch acrylic while preserving sufficient reach, mobility, and structural integrity.",
-      results: "I modelled the assembly in SolidWorks and iteratively refined the geometry to reduce material consumption without compromising the arm's usable workspace. The final design integrated the linkage, gripper, and supporting structure within the project manufacturing constraint."
+      challenge: "Every component had to be laser-cut from a single 8 by 10 inch sheet of 1/8 inch thick acrylic while preserving sufficient reach, mobility, and structural integrity.",
+      results: "I modelled the assembly in SolidWorks and refined the geometry to reduce material consumption without compromising the arm's usable workspace. The final design integrated the linkage, gripper, and supporting structure within the project manufacturing constraint."
     },
     {
       id: "line-maze-robot",
@@ -32,11 +43,23 @@
       organization: "Toronto Metropolitan University",
       categories: ["Software", "Electrical"],
       image: "assets/img/portfolio/projects/line-maze-robot.jpg",
+      videos: [
+        {
+          src: "assets/video/portfolio/line-maze-robot/line-following-demo.mp4",
+          label: "Line-following robot demonstration",
+          orientation: "landscape"
+        },
+        {
+          src: "assets/video/portfolio/line-maze-robot/maze-traversal-demo.mp4",
+          label: "Maze-traversal robot demonstration",
+          orientation: "portrait"
+        }
+      ],
       alt: "Autonomous rover navigating a maze",
       lead: "An autonomous rover programmed to complete sequential line-following and maze-traversal challenges using closed-loop sensor feedback.",
-      overview: "The robot combined C++ and AVR Assembly software with IMU and ultrasonic sensing to transition from line tracking into autonomous maze navigation.",
+      overview: "The robot combined C++ and AVR Assembly software with IMU, ultrasonic sensing, and LiDAR to transition from line tracking into autonomous maze navigation.",
       challenge: "Reliable navigation required accurate 90-degree turns, early evaluation of competing paths, and consistent alignment before entering the selected corridor.",
-      results: "I implemented closed-loop IMU turning, a two-stop path-selection algorithm, and an ultrasonic stop-look routine triggered within 15 cm of a wall. The rover completed both challenges on competition day and was one of only three teams in the section to use closed-loop feedback for the maze."
+      results: "I implemented closed-loop IMU turning, a two-stop path-selection algorithm, and an ultrasonic stop-look routine triggered within 15 cm of a wall. The rover completed both challenges on competition day and was one of only three teams in our section to use closed-loop feedback for the maze."
     },
     {
       id: "pid-controlled-ruler",
@@ -44,11 +67,13 @@
       organization: "Toronto Metropolitan University",
       categories: ["Software", "Electrical", "Mechanical"],
       image: "assets/img/portfolio/projects/pid-controlled-ruler.jpg",
+      video: "assets/video/portfolio/pid-controlled-ruler/pid-ruler-demo.mp4",
+      videoPoster: false,
       alt: "PID-controlled ruler prototype with dial and electronics",
-      lead: "A mechatronic display that converts nonlinear distance-sensor measurements into the angular position of a motor-driven dial.",
+      lead: "A device that converts nonlinear distance-sensor measurements into the angular position of a motor-driven dial.",
       overview: "The device integrated sensing, signal conditioning, closed-loop motor control, and custom mechanical components to provide a readable physical indication of target distance.",
       challenge: "Raw sensor measurements were nonlinear and noisy, requiring calibration and filtering before they could serve as a stable control input for the dial mechanism.",
-      results: "The team applied a low-pass filter, fitted a polynomial calibration curve, manually tuned PID gains, and drove the DC motor with PWM. I contributed primarily to the electrical and mechanical design, including custom SolidWorks components, and assisted with the LabVIEW implementation. The completed prototype accurately displayed target distance on the dial."
+      results: "Our team applied a low-pass filter, fitted a polynomial calibration curve, manually tuned PID gains, and drove the DC motor with PWM. I contributed primarily to the calibration curves, electrical and mechanical design, including custom SolidWorks components, and assisted with the LabVIEW implementation. The completed prototype accurately displayed target distance on the dial."
     },
     {
       id: "imitation-learning-xarm",
@@ -56,11 +81,13 @@
       organization: "ELIXIR Lab",
       categories: ["Software", "Machine Learning"],
       image: "assets/img/portfolio/projects/imitation-learning-xarm.jpg",
+      video: "assets/video/portfolio/imitation-learning-xarm/imitation-learning-demo-4x.mp4",
+      videoPoster: false,
       alt: "UFactory xArm 850 robotic manipulator",
-      lead: "A ROS 2 and PyTorch imitation-learning system that predicts robotic-arm motion toward task-defined target locations.",
-      overview: "The project established an end-to-end workflow for collecting demonstrations, training a neural policy, and controlling a UFactory xArm 850 through live joint-state feedback.",
+      lead: "A ROS 2 and PyTorch imitation-learning project that predicts robotic-arm motion toward task-defined target locations.",
+      overview: "The project established an end-to-end workflow for collecting demonstrations, training an imitation learning policy, and controlling a UFactory xArm 850 through live joint state feedback.",
       challenge: "The system needed synchronized trajectory data and a reliable feedback loop capable of translating model predictions into safe, repeatable arm motion.",
-      results: "I created ROS 2 nodes to load trajectories from CSV, command inverse-kinematics motion, and record joint positions at a fixed rate. A deep neural network trained on this dataset was integrated with ROS 2 feedback and the xArm SDK. The model reached specified targets and demonstrated interpolation and extrapolation to task IDs outside the training set."
+      results: "I created ROS 2 nodes to load trajectories from CSV, command inverse-kinematics motion, and record joint positions at a fixed rate. A deep neural network trained on this dataset was integrated with ROS 2 feedback and the xArm SDK. The model reached specified targets marked on the table and demonstrated interpolation to position IDs outside the training set."
     },
     {
       id: "ai-payload-camera",
@@ -152,6 +179,54 @@
   const image = document.getElementById("project-image");
   image.src = project.image;
   image.alt = project.alt;
+  image.hidden = Boolean(project.video || project.videos?.length);
+
+  const video = document.getElementById("project-video");
+  if (project.video) {
+    video.src = project.video;
+    if (project.videoPoster !== false) {
+      video.poster = project.image;
+    }
+    video.setAttribute("aria-label", `${project.title} demonstration video`);
+    video.hidden = false;
+    video.play().catch(() => {
+      // The visible controls allow playback when a browser blocks autoplay.
+    });
+  }
+
+  const gallery = document.getElementById("project-gallery");
+  if (project.videos?.length) {
+    gallery.classList.add("project-video-gallery");
+    project.videos.forEach((item) => {
+      const galleryVideo = document.createElement("video");
+      galleryVideo.src = item.src;
+      galleryVideo.setAttribute("aria-label", item.label);
+      galleryVideo.className = `project-gallery-video project-gallery-video-${item.orientation}`;
+      galleryVideo.controls = true;
+      galleryVideo.muted = true;
+      galleryVideo.autoplay = true;
+      galleryVideo.loop = true;
+      galleryVideo.playsInline = true;
+      galleryVideo.preload = "auto";
+      gallery.appendChild(galleryVideo);
+      galleryVideo.play().catch(() => {
+        // The visible controls allow playback when a browser blocks autoplay.
+      });
+    });
+  }
+
+  if (project.gallery?.length) {
+    project.gallery.forEach((item) => {
+      const galleryImage = document.createElement("img");
+      galleryImage.src = item.src;
+      galleryImage.alt = item.alt;
+      galleryImage.className = "project-gallery-photo";
+      galleryImage.loading = "lazy";
+      gallery.appendChild(galleryImage);
+    });
+  }
+
+  gallery.hidden = !(project.videos?.length || project.gallery?.length);
 
   const tags = document.getElementById("project-tags");
   project.categories.forEach((category) => {
