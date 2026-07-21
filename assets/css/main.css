@@ -3007,6 +3007,28 @@ section,
   grid-template-columns: minmax(0, 1fr);
 }
 
+.project .project-gallery-stacked {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project .project-gallery-arm {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.project .project-gallery-arm .project-gallery-photo {
+  grid-column: 1 / -1;
+}
+
+.project .project-gallery-mk2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project .project-gallery-mk2 .project-gallery-photo:first-child {
+  grid-column: 1 / -1;
+}
+
 .project .project-gallery-photo,
 .project .project-gallery-video {
   display: block;
@@ -3052,6 +3074,7 @@ section,
   .project .project-gallery-video-portrait {
     width: min(78%, 360px);
   }
+
 }
 
 @media (max-width: 767.98px) {

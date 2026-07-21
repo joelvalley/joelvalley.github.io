@@ -95,9 +95,21 @@
       organization: "MetRocketry",
       categories: ["Software", "Electrical", "Machine Learning"],
       image: "assets/img/portfolio/projects/ai-payload-camera.png",
+      galleryReplacesImage: true,
+      galleryLayout: "stacked",
+      gallery: [
+        {
+          src: "assets/img/portfolio/projects/ai-payload-camera.png",
+          alt: "Aerial scene processed by the AI payload's detection model"
+        },
+        {
+          src: "assets/img/portfolio/projects/ai-payload/terrain-segmentation-result.png",
+          alt: "AI payload terrain segmentation identifying buildings, vegetation, and surface types"
+        }
+      ],
       alt: "Aerial scene processed by object detection and segmentation models",
-      lead: "An edge-AI vision payload for terrain mapping, building detection, and rescue-surveillance applications.",
-      overview: "The system combines custom aerial datasets, YOLO-based detection and segmentation models, and real-time OpenCV inference on embedded NVIDIA hardware.",
+      lead: "An AI computer vision payload for terrain segmentation, building detection, and rescue-surveillance.",
+      overview: "The project combines custom aerial datasets, YOLO-based detection and segmentation models, and real-time OpenCV inference on embedded hardware.",
       challenge: "Aerial imagery presents large changes in scale, viewing angle, and terrain appearance, while the final models must run efficiently on a Jetson Orin Nano paired with an Arducam camera.",
       results: "I annotated and augmented custom datasets with Roboflow and Label Studio, trained multiple YOLO models using Google Colab GPU resources, and developed Python/OpenCV scripts for live instance segmentation. The resulting models achieved approximately 70% mean average precision and successfully identified objects and terrain regions in representative scenes."
     },
@@ -106,7 +118,16 @@
       title: "Solar Panel Controller",
       organization: "Toronto Metropolitan University",
       categories: ["Software"],
-      image: "assets/img/portfolio/projects/solar-panel-controller.png",
+      image: "assets/img/portfolio/projects/solar-panel/panel-simulation.png",
+      video: "assets/video/portfolio/solar-panel-controller/scenario-3.mp4",
+      videoPoster: false,
+      galleryLayout: "stacked",
+      gallery: [
+        {
+          src: "assets/img/portfolio/projects/solar-panel/scenario-3-performance.png",
+          alt: "Scenario 3 plots comparing target, true, and noisy sensed panel angles with sensor error"
+        }
+      ],
       alt: "Solar panel tracking simulation in Gazebo",
       lead: "A ROS 2 proportional-derivative controller that keeps a simulated solar panel aligned with the sun under disturbances and sensor noise.",
       overview: "The controller was evaluated in three Gazebo scenarios: baseline trajectory following, wind disturbance, and combined sensor drift with quantization error.",
@@ -119,6 +140,25 @@
       organization: "Toronto Metropolitan University",
       categories: ["Software"],
       image: "assets/img/portfolio/projects/six-dof-robotic-arm.png",
+      galleryLayout: "arm",
+      videos: [
+        {
+          src: "assets/video/portfolio/six-dof-robotic-arm/trajectory-1.mp4",
+          label: "First 6-DOF robotic arm trajectory animation",
+          orientation: "landscape"
+        },
+        {
+          src: "assets/video/portfolio/six-dof-robotic-arm/trajectory-2.mp4",
+          label: "Second 6-DOF robotic arm trajectory animation",
+          orientation: "landscape"
+        }
+      ],
+      gallery: [
+        {
+          src: "assets/img/portfolio/projects/six-dof-robotic-arm/joint-velocities.png",
+          alt: "Joint velocities over time for the 6-DOF robotic arm trajectory"
+        }
+      ],
       alt: "Six degree-of-freedom robotic arm simulation",
       lead: "A MATLAB implementation of manipulator kinematics, path planning, and Euler-Lagrange dynamics for a six-joint robotic arm.",
       overview: "The project translated core robotics theory into a complete mathematical and simulation workflow covering forward kinematics, Jacobians, inverse kinematics, trajectory generation, and dynamics.",
@@ -143,11 +183,27 @@
       organization: "Toronto Metropolitan University",
       categories: ["Electrical", "Mechanical"],
       image: "assets/img/portfolio/projects/mechanical-arm-mk2.png",
+      galleryReplacesImage: true,
+      galleryLayout: "mk2",
+      gallery: [
+        {
+          src: "assets/img/portfolio/projects/mechanical-arm-mk2.png",
+          alt: "Side view of the second-generation mechanical arm and gripper assembly"
+        },
+        {
+          src: "assets/img/portfolio/projects/mechanical-arm-mk2/gripper-closed.png",
+          alt: "Mechanical gripper Mk2 shown in its closed position"
+        },
+        {
+          src: "assets/img/portfolio/projects/mechanical-arm-mk2/gripper-open.png",
+          alt: "Mechanical gripper Mk2 shown in its open position"
+        }
+      ],
       alt: "Second-generation motor-compatible mechanical arm and gripper",
       lead: "A redesigned four-bar arm and gripper developed for independent rotary actuation and object manipulation.",
-      overview: "The second-generation concept pairs a crank-rocker arm with a rocker-rocker gripper, allowing the arm and end effector to be driven independently by DC or servo motors.",
-      challenge: "The linkage geometry had to provide the desired workspace and gripping motion while remaining compatible with rotary actuators and avoiding invalid mechanism configurations.",
-      results: "I designed, assembled, and rendered the mechanism in SolidWorks, then applied graphical synthesis, Grashof's criterion, and reach analysis to verify the motion path and maximum/minimum operating conditions. The final concept established a validated foundation for motorized actuation."
+      overview: "The concept pairs a crank-rocker arm with a rocker-rocker gripper, allowing the arm and end effector to be driven independently by DC or servo motors.",
+      challenge: "The linkage geometry must be able to cover the desired workspace and grasp objects while remaining compatible with rotary actuators and avoiding invalid mechanism configurations.",
+      results: "My team and I performed graphical synthesis and applied Grashof's criterion to determine the geometry of the mechanism, then designed, assembled, and rendered the mechanism in SolidWorks. We then performed reach analysis to verify the motion path and maximum/minimum operating conditions. The final concept established a foundation for motorized actuation."
     }
   ];
 
@@ -179,7 +235,7 @@
   const image = document.getElementById("project-image");
   image.src = project.image;
   image.alt = project.alt;
-  image.hidden = Boolean(project.video || project.videos?.length);
+  image.hidden = Boolean(project.video || project.videos?.length || project.galleryReplacesImage);
 
   const video = document.getElementById("project-video");
   if (project.video) {
@@ -195,6 +251,15 @@
   }
 
   const gallery = document.getElementById("project-gallery");
+  if (project.galleryLayout === "stacked") {
+    gallery.classList.add("project-gallery-stacked");
+  }
+  if (project.galleryLayout === "arm") {
+    gallery.classList.add("project-gallery-arm");
+  }
+  if (project.galleryLayout === "mk2") {
+    gallery.classList.add("project-gallery-mk2");
+  }
   if (project.videos?.length) {
     gallery.classList.add("project-video-gallery");
     project.videos.forEach((item) => {
