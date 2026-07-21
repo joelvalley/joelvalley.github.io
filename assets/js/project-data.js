@@ -181,7 +181,7 @@
       id: "mechanical-arm-mk2",
       title: "Mechanical Arm with Gripper Mk2",
       organization: "Toronto Metropolitan University",
-      categories: ["Electrical", "Mechanical"],
+      categories: ["Mechanical"],
       image: "assets/img/portfolio/projects/mechanical-arm-mk2.png",
       galleryReplacesImage: true,
       galleryLayout: "mk2",
