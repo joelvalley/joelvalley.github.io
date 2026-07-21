@@ -3029,6 +3029,25 @@ section,
   grid-column: 1 / -1;
 }
 
+.project .project-figure-solar-compact {
+  gap: 1rem;
+}
+
+.project .project-figure-solar-compact>.project-photo {
+  width: 92%;
+  justify-self: center;
+}
+
+.project .project-gallery-solar-compact {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.project .project-gallery-solar-compact .project-gallery-photo {
+  width: 88%;
+  justify-self: center;
+}
+
 .project .project-gallery-photo,
 .project .project-gallery-video {
   display: block;
@@ -3073,6 +3092,11 @@ section,
 
   .project .project-gallery-video-portrait {
     width: min(78%, 360px);
+  }
+
+  .project .project-figure-solar-compact>.project-photo,
+  .project .project-gallery-solar-compact .project-gallery-photo {
+    width: 100%;
   }
 
 }

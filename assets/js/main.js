@@ -175,6 +175,9 @@
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
+        getSortData: {
+          priority: '[data-priority] parseInt'
+        },
         sortBy: sort
       });
     });

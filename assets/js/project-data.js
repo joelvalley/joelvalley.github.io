@@ -121,7 +121,7 @@
       image: "assets/img/portfolio/projects/solar-panel/panel-simulation.png",
       video: "assets/video/portfolio/solar-panel-controller/scenario-3.mp4",
       videoPoster: false,
-      galleryLayout: "stacked",
+      galleryLayout: "solar-compact",
       gallery: [
         {
           src: "assets/img/portfolio/projects/solar-panel/scenario-3-performance.png",
@@ -173,9 +173,9 @@
       image: "assets/img/portfolio/projects/camera-drone-mount.jpg",
       alt: "Camera mount installed beneath a payload drone",
       lead: "A custom 3D-printed mount engineered to secure MetRocketry's payload camera during a drone test campaign.",
-      overview: "The mount provided a precise mechanical interface between the selected camera and the existing payload-drone plate.",
-      challenge: "The design had to respect camera documentation, existing CAD geometry, available mounting points, and the physical constraints of the drone assembly.",
-      results: "I modelled the mount in SolidWorks using the camera and drone-plate dimensions, then prepared and fabricated it through Bambu Studio. The installed mount successfully supported the camera and captured payload footage during the drone test launch."
+      overview: "The mount provided a connection between the camera and the existing payload-drone plate.",
+      challenge: "The design had to respect the camera and existing CAD geometry, available mounting points, and the physical constraints of the drone assembly.",
+      results: "I modelled the mount in SolidWorks using the camera and drone-plate dimensions, then prepared and printed it using Bambu Studio. The installed mount successfully supported the camera and captured footage during the drone test launch."
     },
     {
       id: "mechanical-arm-mk2",
@@ -206,6 +206,20 @@
       results: "My team and I performed graphical synthesis and applied Grashof's criterion to determine the geometry of the mechanism, then designed, assembled, and rendered the mechanism in SolidWorks. We then performed reach analysis to verify the motion path and maximum/minimum operating conditions. The final concept established a foundation for motorized actuation."
     }
   ];
+
+  const projectOrder = [
+    "imitation-learning-xarm",
+    "soft-robot-prototype",
+    "ai-payload-camera",
+    "line-maze-robot",
+    "six-dof-robotic-arm",
+    "solar-panel-controller",
+    "pid-controlled-ruler",
+    "mechanical-arm-mk2",
+    "camera-drone-mount",
+    "mechanical-arm-gripper"
+  ];
+  projects.sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id));
 
   const params = new URLSearchParams(window.location.search);
   const currentIndex = projects.findIndex((project) => project.id === params.get("project"));
@@ -259,6 +273,10 @@
   }
   if (project.galleryLayout === "mk2") {
     gallery.classList.add("project-gallery-mk2");
+  }
+  if (project.galleryLayout === "solar-compact") {
+    gallery.classList.add("project-gallery-solar-compact");
+    gallery.closest(".project-figure")?.classList.add("project-figure-solar-compact");
   }
   if (project.videos?.length) {
     gallery.classList.add("project-video-gallery");
